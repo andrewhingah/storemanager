@@ -72,6 +72,11 @@ html {
     padding: 35px;
     text-align: center;
 }
+
+.this-form p{
+    color: #ffff;
+    font-family: "Trebuchet MS", Helvetica, Sans-sarif;
+}
 .this-form input{
     font-family: "Trebuchet MS", Helvetica, Sans-sarif;
     outline: 1;
