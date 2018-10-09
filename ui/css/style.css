@@ -58,6 +58,9 @@ html {
     font-size: 20px;
 }
 
+.flex-container > div a{
+    text-decoration: none;
+}
 .form{
     padding: 10% 0 0;
     margin: auto;
