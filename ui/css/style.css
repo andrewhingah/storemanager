@@ -33,7 +33,7 @@ html {
 .nav-items a {
     text-decoration: none;
     background-color: whitesmoke;
-    padding: 5px;
+    padding: 15px;
     border-radius: 7%;
 }
 .maincontent {
@@ -51,7 +51,7 @@ html {
 }
 
 .flex-container > div {
-    background-color: #FEFCFF;
+    background-color: #4A4A50;
     margin: 10px;
     text-align: center;
     line-height: 75px;
@@ -60,7 +60,13 @@ html {
 
 .flex-container > div a{
     text-decoration: none;
+    color: #FFFFFF;
 }
+
+.flex-container > div:hover{
+    background: #808080;
+}
+
 .form{
     padding: 10% 0 0;
     margin: auto;
