@@ -48,6 +48,7 @@ html {
     width: 15%;
     height: 100%;
     float: left;
+    overflow: hidden;
 }
 
 .flex-container > div {
@@ -68,8 +69,9 @@ html {
 }
 
 .form{
-    padding: 10% 0 0;
+    padding: 20px;
     margin: auto;
+    overflow: hidden;
 }
 
 .products{
@@ -81,7 +83,9 @@ html {
     z-index: 1;
     background: #256188;
     max-width: 360px;
-    margin: 0 auto 100px;
+    margin: auto;
+    margin-top: 40px;
+    /*margin: 0 auto 100px;*/
     padding: 35px;
     text-align: center;
 }
@@ -137,7 +141,6 @@ footer{
    color: #ffff;
    bottom:0;
    width:100%;
-   height:60px;
    background: #256188;
 }
 
