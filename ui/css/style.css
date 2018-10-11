@@ -244,3 +244,53 @@ footer{
     font-family: "Trebuchet MS", Helvetica, Sans-sarif;
     color: #256188;
 }
+
+.card {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          width: 40%;
+          margin: auto;
+          text-align: center;
+          font-family: "Trebuchet MS", Helvetica, Sans-sarif;
+          float: left;
+          box-sizing: border-box;
+          padding: 20px;
+          margin-left: 10px;
+        }
+
+        .card button {
+          border: none;
+          outline: 0;
+          padding: 12px;
+          color: white;
+          background-color: #4A4A50;
+          text-align: center;
+          cursor: pointer;
+          width: 100%;
+          font-size: 18px;
+        }
+
+        .card h1{
+          color: #256188;
+        }
+
+        .card button .button1{
+          border: none;
+          outline: 0;
+          padding: 12px;
+          color: white;
+          background-color: #FF0000;
+          text-align: center;
+          cursor: pointer;
+          width: 100%;
+          font-size: 18px;
+        }
+
+
+        .card button:hover {
+          opacity: 0.7;
+        }
+
+        .individual h2{
+          color: #256188;
+          text-align:center
+        }
