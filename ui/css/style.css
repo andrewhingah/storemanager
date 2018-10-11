@@ -7,6 +7,25 @@ html {
     height: 100%;
 
 }
+
+button{
+    border-radius: 10px;
+    font-family: "Trebuchet MS", Helvetica, Sans-sarif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #4A4A50;
+    /*width: 100%;*/
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    cursor: pointer;
+
+}
+
+#myTable1 button{
+    width 30px;
+}
 .navbar {
     background-color: #256188;
     padding: 5px 10px;
@@ -45,7 +64,7 @@ html {
     display: flex;
     flex-direction: column;
     background-color: #256188;
-    width: 15%;
+    width: 10%;
     height: 100%;
     float: left;
     overflow: hidden;
@@ -105,7 +124,7 @@ html {
     box-sizing: border-box;
     font-size: 14px;
 }
-.this-form button{
+/*.this-form button{
     border-radius: 20px;
     font-family: "Trebuchet MS", Helvetica, Sans-sarif;
     text-transform: uppercase;
@@ -117,7 +136,7 @@ html {
     color: #FFFFFF;
     font-size: 14px;
     cursor: pointer;
-}
+}*/
 .this-form button:hover, .this-form button:active{
     background: #43A047;
 }
@@ -170,15 +189,44 @@ footer{
   font-size: 18px;
 }
 
-#myTable th, #myTable td {
+#myTable th, #myTable td , #myTable1 th, #myTable1 td{
   text-align: left;
   padding: 12px;
 }
 
-#myTable tr {
+#myTable tr, #myTable1 tr{
   border-bottom: 1px solid #ddd;
 }
 
-#myTable tr.header, #myTable tr:hover {
-  background-color: #f1f1f1;
+#myTable tr:nth-child(even), #myTable1 tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+#myTable tr.header{
+  background-color: #256188;
+}
+
+#myTable tr:hover, #myTable1 tr:hover{
+    background-color: #ddd;
+}
+
+#myTable1{
+    margin-left: 20px;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    font-size: 18px;
+
+}
+
+#myInput1{
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+    padding: 12px;
+
+}
+
+.table1{
+    padding: 20px;
+    float: left;
+    display: table;
 }
