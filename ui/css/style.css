@@ -269,6 +269,11 @@ footer{
           font-size: 18px;
         }
 
+        .card button a {
+            text-decoration: none;
+            color: #ffff;
+        }
+
         .card h1{
           color: #256188;
         }
