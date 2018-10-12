@@ -33,7 +33,7 @@ html {
 .nav-items a {
     text-decoration: none;
     background-color: whitesmoke;
-    padding: 5px;
+    padding: 15px;
     border-radius: 7%;
 }
 .maincontent {
@@ -48,10 +48,11 @@ html {
     width: 15%;
     height: 100%;
     float: left;
+    overflow: hidden;
 }
 
 .flex-container > div {
-    background-color: #FEFCFF;
+    background-color: #4A4A50;
     margin: 10px;
     text-align: center;
     line-height: 75px;
@@ -60,10 +61,17 @@ html {
 
 .flex-container > div a{
     text-decoration: none;
+    color: #FFFFFF;
 }
+
+.flex-container > div:hover{
+    background: #808080;
+}
+
 .form{
-    padding: 10% 0 0;
+    padding: 20px;
     margin: auto;
+    overflow: hidden;
 }
 
 .products{
@@ -75,7 +83,9 @@ html {
     z-index: 1;
     background: #256188;
     max-width: 360px;
-    margin: 0 auto 100px;
+    margin: auto;
+    margin-top: 40px;
+    /*margin: 0 auto 100px;*/
     padding: 35px;
     text-align: center;
 }
@@ -131,7 +141,6 @@ footer{
    color: #ffff;
    bottom:0;
    width:100%;
-   height:60px;
    background: #256188;
 }
 
