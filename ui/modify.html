@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Modify Products Details</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+     <div class="navbar">
+        <p>Store Manager</p>
+    </div>
+    <div class="maincontent">
+    	<div class="flex-container">
+	    	<div><a href="products.html">Inventory</a></div>
+            <div><a href="sale-records.html">Sales</a></div>
+            <div><a href="attendants.html">Attendants</a></div>
+    	</div>
+	    <div class="form">
+	        <form class="this-form ">
+	        	<p>Modify Details</p>
+	        	<input type="text" name="product-id" placeholder="Enter product-id" required/>
+	            <input type="text" name="category" placeholder="Enter product-category" required/>
+	            <input type="text" name="name" placeholder="Enter product-name" required/>
+	            <input type="text" name="number" placeholder="Enter number of items" required/>
+                <input type="text" name="price" placeholder="Enter Price per Unit" required autofocus/>
+	            <button id="submit" type="submit">Update</button>
+	        </form>
+	    </div>
+    </div>
+    
+    <footer>
+        <p>Copyright &copy; 2018 STOREMANAGER</p>
+    </footer>
+</body>
