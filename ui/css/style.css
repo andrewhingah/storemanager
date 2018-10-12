@@ -93,6 +93,11 @@ button{
     overflow: hidden;
 }
 
+.form .this-form a{
+    text-decoration: none;
+    color: #ffff;
+}
+
 .products{
     padding-left: 20px;
     margin: auto;
@@ -210,6 +215,17 @@ footer{
     background-color: #ddd;
 }
 
+#myTable button{
+    text-decoration: none;
+    color: #ffff;
+
+}
+
+#myTable button #submit{
+    text-decoration: none;
+    color: #ffff;
+}
+
 #myTable1{
     margin-left: 20px;
     border-collapse: collapse;
@@ -299,3 +315,4 @@ footer{
           color: #256188;
           text-align:center
         }
+
