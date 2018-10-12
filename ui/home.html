@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+     <div class="navbar">
+        <p>Store Manager</p>
+        <ul class="nav-items">
+            <li class="nav-item float-right"><a href="index.html">Sign Out</a></li>
+        </ul>
+    </div>
+    <div class="maincontent">
+      <div class="flex-container">
+        <div><a href="#">Home</a></div>
+        <div><a href="products.html">Inventory</a></div>
+        <div><a href="#">Sales</a></div>
+        <div><a href="attendants.html">Attendants</a></div>
+      </div>
+      <div class="products">
+          <h2>All Sales</h2>
+
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Filter by date.." title="Type in a name">
+
+            <table id="myTable">
+              <tr class="header">
+                <th style="width:10%;">Sale-ID</th>
+                <th style="width:10%;">Date</th>
+                <th style="width:10%;">Quantity</th>
+                <th style="width:10%;">Attendant</th>
+                <th style="width:10%;">Value</th>
+              </tr>
+              <tr>
+                <td>SL447</td>
+                <td>10/10/2018</td>
+                <td>200</td>
+                <td>Alice Mwende</td>
+                <td>13294</td>
+
+              </tr>
+              <tr>
+                <td>SL100</td>
+                <td>10/10/2018</td>
+                <td>23</td>
+                <td>Savali Kioko</td>
+                <td>61745</td>
+              </tr>
+              <tr>
+                <td>SL234</td>
+                <td>09/10/2018</td>
+                <td>300</td>
+                <td>Fatuma Juma</td>
+                <td>21060</td>
+              </tr>
+              <tr>
+                <td>SL675</td>
+                <td>09/10/2018</td>
+                <td>189</td>
+                <td>Andrew Hinga</td>
+                <td>10980</td>
+              </tr>
+              <tr>
+                <td>SL009</td>
+                <td>09/10/2018</td>
+                <td>201</td>
+                <td>Andrew Hinga</td>
+                <td>14510</td>
+              </tr>
+              <tr>
+                <td>SL567</td>
+                <td>08/10/2018</td>
+                <td>319</td>
+                <td>John Doe</td>
+                <td>11076</td>
+              </tr>
+              <tr>
+                <td>SL177</td>
+                <td>08/10/2018</td>
+                <td>180</td>
+                <td>Wills Katana</td>
+                <td>60100</td>
+              </tr>
+              <tr>
+                <td>SL800</td>
+                <td>07/10/2018</td>
+                <td>431</td>
+                <td>Alicia Sasha</td>
+                <td>20890</td>
+              </tr>
+              <tr>
+                <td>SL653</td>
+                <td>07/10/2018</td>
+                <td>400</td>
+                <td>Alice Mwende</td>
+                <td>27097</td>
+              </tr>
+              <tr>
+                <td>SL199</td>
+                <td>07/10/2018</td>
+                <td>303</td>
+                <td>Aiden Kamau</td>
+                <td>50912</td>
+              </tr>
+              <tr>
+                <td>SL289</td>
+                <td>06/10/2018</td>
+                <td>289</td>
+                <td>Mutisya Muli</td>
+                <td>55009</td>
+              </tr>
+            </table>
+            <!-- filter box -->
+            <script src="js/products.js"></script>
+            
+      </div>
+    </div>
+    
+    <footer>
+        <p>Copyright &copy; 2018 STOREMANAGER</p>
+    </footer>
+</body>
