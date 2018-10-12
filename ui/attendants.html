@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Attendants</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+     <div class="navbar">
+        <p>Store Manager</p>
+        <ul class="nav-items">
+            <li class="nav-item float-right"><a href="create-attendant-account.html">Add New Attendant</a></li>
+            <li class="nav-item float-right"><a href="index.html">Sign Out</a></li>
+        </ul>
+    </div>
+    <div class="maincontent">
+      <div class="flex-container">
+        <div><a href="home.html">Home</a></div>
+        <div><a href="products.html">Inventory</a></div>
+        <div><a href="sale-records.html">Sales</a></div>
+        <div><a href="attendants.html">Attendants</a></div>
+      </div>
+      <div class="products">
+          <h2>Attendants Directory</h2>
+
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Filter by Name.." title="Type in a name">
+
+            <table id="myTable">
+              <tr class="header">
+                <th style="width:10%;">Attendant-ID</th>
+                <th style="width:10%;">Name</th>
+                <th style="width:10%;">Type</th>
+                <th style="width:10%;">Sales Made</th>
+              </tr>
+              <tr>
+                <td>SL447</td>
+                <td>Julius Yego</td>
+                <td>Admin</td>
+                <td>13294</td>
+
+              </tr>
+              <tr>
+                <td>SL100</td>
+                <td>Savali Oliech</td>
+                <td>Normal</td>
+                <td>61745</td>
+              </tr>
+              <tr>
+                <td>SL234</td>
+                <td>Ann Muli</td>
+                <td>Normal</td>
+                <td>21060</td>
+              </tr>
+              <tr>
+                <td>SL675</td>
+                <td>Andrew Hinga</td>
+                <td>Normal</td>
+                <td>10980</td>
+              </tr>
+              <tr>
+                <td>SL009</td>
+                <td>Harry James</td>
+                <td>Admin</td>
+                <td>14510</td>
+              </tr>
+              <tr>
+                <td>SL567</td>
+                <td>Halali Hachoki</td>
+                <td>Normal</td>
+                <td>11076</td>
+              </tr>
+              <tr>
+                <td>SL177</td>
+                <td>Peter Mulinzi</td>
+                <td>Normal</td>
+                <td>60100</td>
+              </tr>
+              <tr>
+                <td>SL800</td>
+                <td>Julius Yego</td>
+                <td>Normal</td>
+                <td>20890</td>
+              </tr>
+              <tr>
+                <td>SL653</td>
+                <td>Serem Serem</td>
+                <td>Normal</td>
+                <td>27097</td>
+              </tr>
+              <tr>
+                <td>SL199</td>
+                <td>This is</td>
+                <td>Normal</td>
+                <td>50912</td>
+              </tr>
+              <tr>
+                <td>SL289</td>
+                <td>Here Here</td>
+                <td>Normal</td>
+                <td>55009</td>
+              </tr>
+            </table>
+            <!-- filter box -->
+            <script src="js/products.js"></script>
+            
+      </div>
+    </div>
+    
+    <footer>
+        <p>Copyright &copy; 2018 STOREMANAGER</p>
+    </footer>
+</body>
