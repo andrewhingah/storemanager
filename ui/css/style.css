@@ -1,7 +1,6 @@
 body{
     height: 100%;
     background: #FEFCFF;
-    /*background: #f1f1f1;*/
     font-family: "Trebuchet MS", Helvetica, Sans-sarif;
 }
 html {
@@ -46,7 +45,7 @@ html {
     display: flex;
     flex-direction: column;
     background-color: #256188;
-    width: 20%;
+    width: 15%;
     height: 100%;
     float: left;
 }
@@ -59,8 +58,16 @@ html {
     font-size: 20px;
 }
 
+.flex-container > div a{
+    text-decoration: none;
+}
 .form{
     padding: 10% 0 0;
+    margin: auto;
+}
+
+.products{
+    padding-left: 20px;
     margin: auto;
 }
 .this-form{
@@ -126,4 +133,43 @@ footer{
    width:100%;
    height:60px;
    background: #256188;
+}
+
+
+.products{
+    margin-left: 20px;
+}
+
+.products h2{
+    text-align: center;
+    color: #256188;
+}
+
+#myInput {
+  background-repeat: no-repeat;
+  margin-left: 30px;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  margin-left: 180px;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
 }

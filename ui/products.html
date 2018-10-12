@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>View Available Products</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+     <div class="navbar">
+        <p>Store Manager</p>
+        <ul class="nav-items">
+            <li class="nav-item float-right"><a href="products.html">Inventory</a></li>
+            <li class="nav-item float-right"><a href="sales.html">Sales</a></li>
+            <li class="nav-item float-right"><a href="attendants.html">Attendants</a></li>
+        </ul>
+    </div>
+    <div class="maincontent">
+    	<div class="flex-container">
+	    	<div><a href="products.html">Inventory</a></div>
+	    	<div><a href="sales.html">Sales</a></div>
+	    	<div><a href="attendants.html">Attendants</a></div>
+    	</div>
+	    <div class="products">
+	        <h2>Inventory</h2>
+
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for products.." title="Type in a name">
+
+            <table id="myTable">
+              <tr class="header">
+                <th style="width:10%;">Product-ID</th>
+                <th style="width:10%;">Product-Name</th>
+                <th style="width:10%;">Quantity</th>
+                <th style="width:10%;">Price/Unit</th>
+              </tr>
+              <tr>
+                <td>1234</td>
+                <td>Beef Burger</td>
+                <td>20</td>
+                <td>900</td>
+
+              </tr>
+              <tr>
+                <td>436278</td>
+                <td>Cappuccino</td>
+                <td>23</td>
+                <td>250</td>
+              </tr>
+              <tr>
+                <td>89765</td>
+                <td>Chocolate Cheese</td>
+                <td>33</td>
+                <td>480</td>
+              </tr>
+              <tr>
+                <td>14647</td>
+                <td>Americano</td>
+                <td>89</td>
+                <td>300</td>
+              </tr>
+              <tr>
+                <td>563738</td>
+                <td>Coke</td>
+                <td>17</td>
+                <td>50</td>
+              </tr>
+              <tr>
+                <td>90814</td>
+                <td>Chicken Burger</td>
+                <td>39</td>
+                <td>790</td>
+              </tr>
+              <tr>
+                <td>12345</td>
+                <td>Chocolate Indulgence</td>
+                <td>18</td>
+                <td>800</td>
+              </tr>
+              <tr>
+                <td>565656</td>
+                <td>Coffee Mocha</td>
+                <td>43</td>
+                <td>289</td>
+              </tr>
+              <tr>
+                <td>576756</td>
+                <td>Caramel Macchiato</td>
+                <td>43</td>
+                <td>270</td>
+              </tr>
+              <tr>
+                <td>79712</td>
+                <td>Sprite</td>
+                <td>33</td>
+                <td>50</td>
+              </tr>
+              <tr>
+                <td>12091</td>
+                <td>Durian Cheese</td>
+                <td>289</td>
+                <td>550</td>
+              </tr>
+            </table>
+            <!-- filter box -->
+            <script src="js/products.js"></script>
+            
+	    </div>
+    </div>
+    
+    <footer>
+        <p>Copyright &copy; 2018 STOREMANAGER</p>
+    </footer>
+</body>
