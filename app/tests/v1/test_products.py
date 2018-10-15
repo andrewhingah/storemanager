@@ -20,7 +20,7 @@ class TestProducts(unittest.TestCase):
 	def test_get(self):
 		"""Test admin/attendant can get all products
 		"""
-		response = self.app.get('/products')
+		response = self.app.get('/api/v1/products')
 		self.assertEqual(response.status_code, 200)
 
 
