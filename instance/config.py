@@ -7,7 +7,7 @@ class Config(object):
     
 
 class DevelopmentConfig(Config):
-    """Configuration fro Development."""
+    """Configuration for Development."""
     DEBUG = True
 
 class TestingConfig(Config):
