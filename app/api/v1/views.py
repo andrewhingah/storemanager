@@ -19,4 +19,3 @@ class Products(Resource):
 
 	def post(self):
 		"""posts a single product"""
-		pass
