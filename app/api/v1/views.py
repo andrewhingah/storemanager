@@ -19,3 +19,17 @@ class Products(Resource):
 
 	def post(self):
 		"""posts a single product"""
+		id = len(products) + 1
+		args = parser.parse_args()
+
+		payload = {
+		'name':args['name'],
+		'quantity':args['quantity'],
+		'price':args['price']
+		}
+
+		products[id] = payload
+
+		return make_response(jsonify({"message":"success",
+			"status":"created",
+			"sale":payload}), 201)
