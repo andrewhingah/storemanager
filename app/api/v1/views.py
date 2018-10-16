@@ -4,12 +4,12 @@ from flask_restful import Api, Resource, reqparse
 app = Flask(__name__)
 api = Api(app)
 
-products = []
+products = {}
 
 parser = reqparse.RequestParser()
-parser.add_argument('name')
-parser.add_argument('quantity')
-parser.add_argument('price')
+parser.add_argument('name', required=True, help="Name cannot be blank")
+parser.add_argument('quantity', type=int, required=True, help="quantity cannot be blank")
+parser.add_argument('price', type=int, required=True, help="price cannot be blank")
 
 class Products(Resource):
 	"""All products class"""

@@ -27,7 +27,7 @@ class TestProducts(unittest.TestCase):
 		self.assertEqual(response.status_code, 200)
 
 	def test_post(self):
-		product = {"name":"unga","price":100}
+		product = {"name":"unga", "quantity":20, "price":100}
 		response = self.app.post('/api/v1/products', data=json.dumps(product))
 		self.assertEqual(response.status_code, 201)
 
