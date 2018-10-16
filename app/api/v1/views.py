@@ -21,6 +21,8 @@ class AllProducts(Resource):
 		"""posts a single product"""
 		id = len(products) + 1
 		args = parser.parse_args()
+		name = args['name']
+		# newproduct = Product(name, quantity, price)
 
 		payload = {
 		'name':args['name'],
@@ -37,8 +39,9 @@ class AllProducts(Resource):
 class SingleProduct(Resource):
 	'''single product API'''
 	def get(self, id):
-		for key in products:
+
+		for key in products.keys():
 			if key == id:
-				return products[id]
+				return {id: products[id]}
 		message = "Product not found"
 		return {"message":message}
