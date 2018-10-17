@@ -26,7 +26,6 @@ class TestProducts(unittest.TestCase):
 		"""
 		response = self.app.get('/api/v1/sales')
 		self.assertEqual(response.status_code, 200)
-
 	def test_post(self):
 		"""test create a sale record
 		"""

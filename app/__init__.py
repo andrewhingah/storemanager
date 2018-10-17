@@ -3,8 +3,8 @@ from flask_restful import Resource, Api
 
 from instance.config import app_config
 
-from .api.v1.products_views import AllProducts, SingleProduct
-from .api.v1.sales_views import AllSales, SingleSale
+from .api.v1.views.products_views import AllProducts, SingleProduct
+from .api.v1.views.sales_views import AllSales, SingleSale
 
 version1 = Blueprint('api', __name__)
 api = Api(version1)
