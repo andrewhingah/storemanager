@@ -45,14 +45,16 @@ class SingleProduct(Resource):
 	'''single product API'''
 	def get(self, product_id):
 		one_product = Products.get_one(self, product_id)
-		if one_product == 'product not found':
+
+		if one_product == "Product not found":
 			return make_response(jsonify(
 				{"status":"not found",
-				"message":"Product not found"}
-				), 404)
-
+				"message":"product unavailbale",
+				}), 404)
+			
 		return make_response(jsonify(
 			{"status":"ok",
 			"message":"success",
 			"product":one_product}
 			), 200)
+			
