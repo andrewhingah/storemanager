@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, make_response
 from flask_restful import Api, Resource, reqparse
+from .models import Products
 
 app = Flask(__name__)
 api = Api(app)
@@ -8,40 +9,50 @@ products = {}
 
 parser = reqparse.RequestParser()
 parser.add_argument('name', required=True, help="Name cannot be blank")
-parser.add_argument('quantity', type=int, required=True, help="quantity cannot be blank")
-parser.add_argument('price', type=int, required=True, help="price cannot be blank")
+parser.add_argument('quantity', type=int, required=True, help="Only integers allowed")
+parser.add_argument('price', type=int, required=True, help="only integers allowed")
 
 class AllProducts(Resource):
 	"""All products class"""
 	def get(self):
 		"""gets all products"""
-		return {"Products":products}
+		products = Products.get_all(self)
+		return make_response(jsonify(
+			{
+			"message":"success",
+			"status":"ok",
+			"products":products}),
+		200)
 
 	def post(self):
 		"""posts a single product"""
-		id = len(products) + 1
+		
 		args = parser.parse_args()
 		name = args['name']
-		# newproduct = Product(name, quantity, price)
+		quantity = args['quantity']
+		price = args['price']
 
-		payload = {
-		'name':args['name'],
-		'quantity':args['quantity'],
-		'price':args['price']
-		}
+		newproduct = Products(name, quantity, price)
+		newproduct.save()
 
-		products[id] = payload
-
-		return make_response(jsonify({"message":"success",
+		return make_response(jsonify(
+			{"message":"success",
 			"status":"created",
-			"sale":payload}), 201)
+			"product":newproduct.__dict__}
+			), 201)
 
 class SingleProduct(Resource):
 	'''single product API'''
-	def get(self, id):
+	def get(self, product_id):
+		one_product = Products.get_one(self, product_id)
+		if one_product == 'product not found':
+			return make_response(jsonify(
+				{"status":"not found",
+				"message":"Product not found"}
+				), 404)
 
-		for key in products.keys():
-			if key == id:
-				return {id: products[id]}
-		message = "Product not found"
-		return {"message":message}
+		return make_response(jsonify(
+			{"status":"ok",
+			"message":"success",
+			"product":one_product}
+			), 200)

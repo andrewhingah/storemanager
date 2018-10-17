@@ -15,6 +15,6 @@ def create_app(config_name):
 
 	app.register_blueprint(version1, url_prefix='/api/v1')
 	api.add_resource(AllProducts, '/products')
-	api.add_resource(SingleProduct, '/product/<int:id>')
+	api.add_resource(SingleProduct, '/product/<int:product_id>')
 
 	return app
