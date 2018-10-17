@@ -25,14 +25,22 @@ class TestProducts(unittest.TestCase):
 		"""Test user can get all sales
 		"""
 		response = self.app.get('/api/v1/sales')
+		result = json.loads(response.data.decode())
+
 		self.assertEqual(response.status_code, 200)
+		self.assertEqual(result["message"], "success")
+
 	def test_post(self):
 		"""test create a sale record
 		"""
 		response = self.app.post('/api/v1/sales',
 			data=json.dumps(self.data),
 			content_type='application/json')
+		result = json.loads(response.data.decode())
+
 		self.assertEqual(response.status_code, 201)
+		self.assertEqual(result["message"], "success")
+		self.assertEqual(result["status"], "created")
 
 	def test_get_one_sale_record(self):
 		"""test get a specific sale_record by id
@@ -40,9 +48,12 @@ class TestProducts(unittest.TestCase):
 		response = self.app.post('/api/v1/sales',
 			data=json.dumps(self.data),
 			content_type='application/json')
+		result = json.loads(response.data.decode())
+
 		self.assertEqual(response.status_code, 201)
 
-		res = self.app.get('/api/v1/sale/1')	
+		res = self.app.get('/api/v1/sale/{}'.format(
+			result["sale_record"]["sale_id"]))	
 		self.assertEqual(res.status_code, 200)
 
 	def test_get_non_existing_product(self):
@@ -50,6 +61,10 @@ class TestProducts(unittest.TestCase):
 		"""
 		response = self.app.get('/api/v1/sale/100')
 		self.assertEqual(response.status_code, 404)
+
+		result = json.loads(response.data.decode())
+		self.assertEqual(result["message"], "sale record unavailable")
+		self.assertEqual(result["status"], "not found")
 
 if __name__ == '__main__':
 	unittest.__main__
