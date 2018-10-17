@@ -40,3 +40,20 @@ class AllSales(Resource):
 			"status":"created",
 			"sale_record":new_sale.__dict__}
 			), 201)
+
+class SingleSale(Resource):
+	'''Single sale record API'''
+	def get(self, sale_id):
+		one_sale = Sales.get_one(self, sale_id)
+
+		if one_sale == "Sale record not found":
+			return make_response(jsonify(
+				{"status":"not found",
+				"message":"sale record unavailbale",
+				}), 404)
+			
+		return make_response(jsonify(
+			{"status":"ok",
+			"message":"success",
+			"product":one_sale}
+			), 200)
