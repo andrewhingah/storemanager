@@ -1,5 +1,3 @@
-from flask_bcrypt import Bcrypt
-
 class User:
 	'''Class represents operations related to products'''
 	all_users = {}
