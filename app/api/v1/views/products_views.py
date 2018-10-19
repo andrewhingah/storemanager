@@ -1,9 +1,10 @@
 from flask import Flask, jsonify, make_response
 from flask_restful import Api, Resource, reqparse
-from ..models.products_model import Products
 
-app = Flask(__name__)
-api = Api(app)
+from flask_jwt import JWT, jwt_required
+from flask_jwt_extended import (jwt_required, create_access_token, get_jwt_identity, get_raw_jwt)
+
+from ..models.products_model import Products
 
 
 parser = reqparse.RequestParser()
@@ -13,6 +14,7 @@ parser.add_argument('price', type=int, required=True, help="only integers allowe
 
 class AllProducts(Resource):
 	"""All products class"""
+	@jwt_required
 	def get(self):
 		"""gets all products"""
 		products = Products.get_all(self)
@@ -23,6 +25,7 @@ class AllProducts(Resource):
 			"products":products}),
 		200)
 
+	@jwt_required
 	def post(self):
 		"""posts a single product"""
 		
@@ -42,6 +45,7 @@ class AllProducts(Resource):
 
 class SingleProduct(Resource):
 	'''single product API'''
+	@jwt_required
 	def get(self, product_id):
 		one_product = Products.get_one(self, product_id)
 

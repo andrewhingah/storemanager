@@ -7,22 +7,26 @@ class Config(object):
     
 
 class DevelopmentConfig(Config):
-    """Configuration for Development."""
+    """Configuration fro Development."""
     DEBUG = True
+    JWT_SECRET_KEY = "gvhbjnkmsjbknmlnjk"
 
 class TestingConfig(Config):
     """Configuration for Testing."""
     TESTING = True
     DEBUG = True
+    JWT_SECRET_KEY = "gvhbjnkmsjbknmlnjk"
 
 class StagingConfig(Config):
     """Configuration for Staging."""
     DEBUG = False
+    JWT_SECRET_KEY = "gvhbjnkmsjbknmlnjk"
 
 class ProductionConfig(Config):
     """Configration for Production"""
     DEBUG = False
     TESTING = False
+    JWT_SECRET_KEY = "gvhbjnkmsjbknmlnjk"
 
 app_config = {
     'development' : DevelopmentConfig,

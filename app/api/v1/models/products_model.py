@@ -1,5 +1,6 @@
 from datetime import datetime
 
+
 class Products:
 	'''Class represents operations related to products'''
 	products = {}
