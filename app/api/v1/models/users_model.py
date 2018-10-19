@@ -17,8 +17,6 @@ class User:
 
 		self.all_users.update({self.email:payload})
 
-	def get_all(self):
-		return User.products
 
 	def get_one(self, email):
 
