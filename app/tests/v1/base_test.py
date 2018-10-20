@@ -24,22 +24,29 @@ class BaseTestCase(unittest.TestCase):
 
         self.user = {'email': 'andrewhinga5@gmail.com', 'username': 'andrew5','password': 'password'}
         self.header = {"Content-Type": "application/json"}
+
+        self.s_url = 'api/v1/auth/signup' #signup url
+        self.l_url = 'api/v1/auth/login' #login url
+        self.p_url = 'api/v1/products' #products url
+        self.sl_url = 'api/v1/sales' #sales url
         
 
-    def register_user(self, email='andrewhinga5@gmail.com', username='andrew', password='1234'):
-    	user_data = {
-    	'email':email,
-    	'username':username,
-    	'password':password
-    	}
+    def register_user(self, email='', username='', password=''):
+    	# user_data = {
+    	# 'email':email,
+    	# 'username':username,
+    	# 'password':password
+    	# }
+    	user_data = self.users
 
-    	return self.checker.post('api/v1/auth/signup', data=user_data)
+    	return self.checker.post(self.s_url, data=user_data)
 
-    def login_user(self, email='andrewhinga5@gmail.com', password='1234'):
-    	user_data = {
-    	'email':email,
-    	'password':password
-    	}
+    def login_user(self, email='', password=''):
+    	# user_data = {
+    	# 'email':email,
+    	# 'password':password
+    	# }
+    	user_data =self.users
 
     	response = self.checker.post('api/v1/auth/login', data=user_data)
     	return response

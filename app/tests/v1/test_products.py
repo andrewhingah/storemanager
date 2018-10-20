@@ -16,7 +16,7 @@ class TestProducts(BaseTestCase):
 		self.register_user()
 		result = self.login_user()
 		access_token = json.loads(result.data.decode())['token']
-		response = self.client.get('/api/v1/products',
+		response = self.client.get(self.p_url,
 			headers=dict(Authorization="Bearer " + access_token))
 		self.assertEqual(response.status_code, 200)
 
@@ -27,7 +27,7 @@ class TestProducts(BaseTestCase):
 		result = self.login_user()
 		access_token = json.loads(result.data.decode())['token']
 
-		response = self.client.post('/api/v1/products',
+		response = self.client.post(self.p_url,
 			headers=dict(Authorization="Bearer " + access_token),
 			data=self.products_data)
 		self.assertEqual(response.status_code, 201)
@@ -39,7 +39,7 @@ class TestProducts(BaseTestCase):
 		result = self.login_user()
 		access_token = json.loads(result.data.decode())['token']
 
-		response = self.client.post('/api/v1/products',
+		response = self.client.post(self.p_url,
 			data=self.products_data,
 			headers=dict(Authorization="Bearer " + access_token))
 		self.assertEqual(response.status_code, 201)

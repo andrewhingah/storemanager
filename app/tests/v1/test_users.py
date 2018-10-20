@@ -10,7 +10,7 @@ class UsersTestCase(BaseTestCase):
     def test_signup_user_with_existing_email(self):
         """Test to register user with existing email."""
         data = self.users
-        response = self.checker.post('/api/v1/auth/signup', data=json.dumps(data), headers=self.header)
+        response = self.checker.post('api/v1/auth/signup', data=json.dumps(data), headers=self.header)
 
         result = json.loads(response.data.decode())
 
@@ -19,7 +19,7 @@ class UsersTestCase(BaseTestCase):
     def test_signup_new_user(self):
         """Test to register new user."""
         data = self.default_user
-        response = self.checker.post('/api/v1/auth/signup', data=json.dumps(data), headers=self.header)
+        response = self.checker.post('api/v1/auth/signup', data=json.dumps(data), headers=self.header)
 
         result = json.loads(response.data.decode())
 
@@ -29,7 +29,7 @@ class UsersTestCase(BaseTestCase):
     def test_signin_user(self):
         """Test user sign in to their account."""
         data = self.users
-        response = self.checker.post('/api/v1/auth/login', data=json.dumps(data), headers=self.header)
+        response = self.checker.post(self.l_url, data=json.dumps(data), headers=self.header)
 
         result = json.loads(response.data.decode())
 
@@ -39,7 +39,7 @@ class UsersTestCase(BaseTestCase):
     def test_signin_non_registered_user(self):
         """Test signing in a non-registered user."""
         data = self.default_user
-        response = self.checker.post('/api/v1/auth/login', data=json.dumps(data), headers=self.header)
+        response = self.checker.post(self.l_url, data=json.dumps(data), headers=self.header)
 
         result = json.loads(response.data.decode())
 
