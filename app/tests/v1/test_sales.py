@@ -16,7 +16,7 @@ class TestSales(BaseTestCase):
 		result = self.login_user()
 		access_token = json.loads(result.data.decode())['token']
 
-		response = self.client.get('/api/v1/sales',
+		response = self.client.get(self.sl_url,
 			headers=dict(Authorization="Bearer " + access_token))
 		result = json.loads(response.data.decode())
 
@@ -30,7 +30,7 @@ class TestSales(BaseTestCase):
 		result = self.login_user()
 		access_token = json.loads(result.data.decode())['token']
 
-		response = self.client.post('/api/v1/sales',
+		response = self.client.post(self.sl_url,
 			data=self.sales_data,
 			headers=dict(Authorization="Bearer " + access_token))
 		result = json.loads(response.data.decode())
@@ -49,10 +49,11 @@ class TestSales(BaseTestCase):
 	# 	response = self.client.post('/api/v1/sales',
 	# 		data=self.sales_data,
 	# 		headers=dict(Authorization="Bearer " + access_token))
-	# 	result = json.loads(response.data.decode())
+	# 	resp = json.loads(response.data.decode())
+		
 	# 	self.assertEqual(response.status_code, 201)
 
-	# 	res = self.client.get('/api/v1/sales/1',
+	# 	res = self.client.get('/api/v1/sales/{}'.format(resp['id']),
 	# 		headers=dict(Authorization="Bearer " + access_token))	
 	# 	self.assertEqual(res.status_code, 200)
 
