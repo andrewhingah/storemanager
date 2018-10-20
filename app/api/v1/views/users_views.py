@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, make_response
+from flask import Flask, jsonify, make_response, request
 from flask_restful import Api, Resource, reqparse
 from flask_jwt_extended import (jwt_required, create_access_token, get_jwt_identity, get_raw_jwt)
 
@@ -20,6 +20,9 @@ class UserRegistration(Resource):
 		email = args['email']
 		username = args['username']
 		password = args['password']
+		# email = request.get_json('email')
+		# username = request.get_json('username')
+		# password = request.get_json('password')
 
 		new_user = User.get_one(self, email)
 
@@ -40,15 +43,17 @@ class UserLogin(Resource):
 		args = parser.parse_args()
 		email = args['email']
 		password = args['password']
+		# email = request.get_json('email')
+		# password = request.get_json('password')
 
 		user = User.get_one(self, email)
 
 		if user == "User not found":
 			return make_response(jsonify(
 				{
-				"message":"User not found",
-				}), 404)
+				"message":"Your account does not exist!, Please Register!",
+				}), 401)
 		else:
-			token = create_access_token(identity=args['email'])
+			token = create_access_token(identity=email)
 			return make_response(jsonify({'message': 'Logged in successfully!', 'token': token}), 201)
-		return make_response('Your account does not exist!, Please Register!'), 401
+		# return make_response('Your account does not exist!, Please Register!'), 401

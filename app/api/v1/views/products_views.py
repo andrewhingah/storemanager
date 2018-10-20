@@ -2,7 +2,7 @@ from flask import Flask, jsonify, make_response
 from flask_restful import Api, Resource, reqparse
 
 from flask_jwt import JWT, jwt_required
-from flask_jwt_extended import (jwt_required, create_access_token, get_jwt_identity, get_raw_jwt)
+from flask_jwt_extended import jwt_required
 
 from ..models.products_model import Products
 
