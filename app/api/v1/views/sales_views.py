@@ -49,7 +49,7 @@ class SingleSale(Resource):
 		if one_sale == "Sale record not found":
 			return make_response(jsonify(
 				{"status":"not found",
-				"message":"sale record unavailbale",
+				"message":"sale record unavailable",
 				}), 404)
 			
 		return make_response(jsonify(
