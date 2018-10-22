@@ -1,9 +1,9 @@
+''
 from flask import Flask, jsonify, make_response
 from flask_restful import Api, Resource, reqparse
-from ..models.sales_model import Sales
+from flask_jwt_extended import (jwt_required, create_access_token, get_jwt_identity, get_raw_jwt)
 
-app = Flask(__name__)
-api = Api(app)
+from ..models.sales_model import Sales
 
 
 parser = reqparse.RequestParser()
@@ -14,6 +14,7 @@ parser.add_argument('price', type=int, required=True, help="only integers allowe
 
 class AllSales(Resource):
 	"""All products class"""
+	@jwt_required
 	def get(self):
 		"""gets all products"""
 		sales = Sales.get_all(self)
@@ -24,6 +25,7 @@ class AllSales(Resource):
 			"sales":sales}),
 		200)
 
+	@jwt_required
 	def post(self):
 		"""posts a single product"""
 		args = parser.parse_args()
@@ -43,6 +45,7 @@ class AllSales(Resource):
 
 class SingleSale(Resource):
 	'''Single sale record API'''
+	@jwt_required
 	def get(self, sale_id):
 		one_sale = Sales.get_one(self, sale_id)
 

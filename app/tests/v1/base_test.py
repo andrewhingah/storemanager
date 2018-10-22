@@ -1,32 +1,56 @@
+'''Base test class that defines
+setup and initializes data'''
+
 import unittest
 import json
 
 from ... import create_app
 
 class BaseTestCase(unittest.TestCase):
-	'''Base tests class'''
-	def setUp(self):
-		"""
-		tests setup
-		"""
-		self.app = create_app('testing').test_client()
+    """Parent tests class"""
 
-		self.products_data = {"name":"unga", "quantity":22, "price":100}
-		self.sales_data = {"name":"laptop", "quantity":33, "category": "electronics", "price":55000}
-
-		self.users = {'name': 'Barbara Hamisi', 'email': 'hamisi.com', 'password': '1234'}
-
-		self.user = {'name': 'Andrew Hinga', 'email': 'andrewhinga5@gmail.com', 'password': 'password'}
-
-		self.authHeaders = {"Content-Type":"application/json"}
-		self.header = {"Content-Type":"application/json"}
-
-		#create a new user
-		self.app.post('/api/v1/auth/signup', data=json.dumps(self.user), headers=self.header)
-
-		# login the user
-		response = self.app.post("/api/v1/auth/signin", data=json.dumps(self.user), headers=self.header)
+    def setUp(self):
+        """Define test variables and initialize app."""
+        self.app = create_app(config_name="testing")
+        
+        self.checker = self.app.test_client()
+        self.users = {'email': 'andrewhinga5@gmail.com', 'username': 'andrew5', 'password': '1234'}
+        self.default_user = {'email': 'john@gmail.com', 'username':'john', 'password': '1881'} 
+    
+        self.client = self.app.test_client()
+        self.products_data = {"name":"unga", "quantity":22, "price":100}
+        self.sales_data = {"name":"laptop", "quantity":33, "category": "electronics", "price":55000}
 
 
-if __name__ == '__main__':
+        self.user = {'email': 'andrewhinga5@gmail.com', 'username': 'andrew5','password': 'password'}
+        self.header = {"Content-Type": "application/json"}
+
+        self.s_url = 'api/v1/auth/signup' #signup url
+        self.l_url = 'api/v1/auth/login' #login url
+        self.p_url = 'api/v1/products' #products url
+        self.sl_url = 'api/v1/sales' #sales url
+        
+
+    def register_user(self, email='', username='', password=''):
+    	# user_data = {
+    	# 'email':email,
+    	# 'username':username,
+    	# 'password':password
+    	# }
+    	user_data = self.users
+
+    	return self.checker.post(self.s_url, data=user_data)
+
+    def login_user(self, email='', password=''):
+    	# user_data = {
+    	# 'email':email,
+    	# 'password':password
+    	# }
+    	user_data =self.users
+
+    	response = self.checker.post('api/v1/auth/login', data=user_data)
+    	return response
+
+
+if __name__ == "__main__":
 	unittest.main()
