@@ -10,71 +10,73 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Prerequisites
 
-Git
-Postman
-Python 3.6
+- Git
+- Postman
+- Python 3.6
 
 ## Installing
 
-Clone this repository. `git clone https://github.com/andrewhingah/storemanager.git`
+- Clone this repository. `git clone https://github.com/andrewhingah/storemanager.git`
 
-While in the main directory (storemanager), checkout to feature branch 'git checkout ch-host-on-heroku-api-#161360493'
+- While in the main directory (storemanager), checkout to feature branch 'git checkout ch-host-on-heroku-api-#161360493'
 
-To test API locally, set up a virtual environment in the base project folder
+- To test API locally, set up a virtual environment in the base project folder
 
 `virtualenv venv`
 
 `source venv/bin/activate`
 
-Install dependecies `pip install -r requirements.txt`
+- Install dependecies `pip install -r requirements.txt`
 
-Run tests `pytest` or `nosetests --exe --with-coverage --cover-package=api`
+- Run tests `pytest` or `nosetests --exe --with-coverage --cover-package=api`
 
-Test the endpoints on postman.
+- Test the endpoints on postman.
 
-First create a new user through url `http://127.0.0.1:5000/api/v1/auth/signup`
+- First create a new user through url `http://127.0.0.1:5000/api/v1/auth/signup`
 
 Header: `Content-Type: application/json`
 
 Sample request:
-{
+
+`{
 	"email":"smith@gmail.com",
 	"username":"smith",
 	"password":"12345"
-}
+}`
 
-Sign in the user: url: `http://127.0.0.1:5000/api/v1/auth/login`
+- Sign in the user: url: `http://127.0.0.1:5000/api/v1/auth/login`
 
 Header: `Content-Type: application/json`
 
-Copy the access token generated and post it on the bearer section part in every other endpoint you wish to test:
+- Copy the access token generated and post it on the bearer section part in every other endpoint you wish to test:
 
 A sample post product API request should look like this:
 
 Header: `Content-Type: application/json`
-{
+
+`{
 	"name":"Iphone 6",
 	"quantity":"30",
 	"price":"50500"
-}
+}`
 
 The following endpoints should work:
 
-`POST /auth/signup`
+- `POST /auth/signup`
 
-`POST /auth/login`
+- `POST /auth/login`
 
-`GET /products`
+- `GET /products`
 
-`GET /products/<productId>`
+- `GET /products/<productId>`
 
-`GET /sales`
+- `GET /sales`
 
-`GET /sales/<saleId>`
+- `GET /sales/<saleId>`
 
-`POST /products`
+- `POST /products`
 
-`POST /sales`
+- `POST /sales`
 
 ## Built With
 
