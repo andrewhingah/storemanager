@@ -52,7 +52,7 @@ class TestSales(BaseTestCase):
 		
 		self.assertEqual(response.status_code, 201)
 
-		res = self.client.get('/api/v1/sales/1',
+		res = self.client.get('/api/v1/sale/1',
 			headers=dict(Authorization="Bearer " + access_token))	
 		self.assertEqual(res.status_code, 200)
 
