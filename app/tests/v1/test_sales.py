@@ -2,24 +2,12 @@
 Products testing module
 """
 import json
-import unittest
+from .base_test import BaseTestCase
 
-
-from ... import create_app
-
-
-class TestProducts(unittest.TestCase):
+class TestSales(BaseTestCase):
 	"""
 	class for testing products endpoints
 	"""
-
-	data = {"name":"laptop", "quantity":33, "category": "electronics", "price":55000}
-
-	def setUp(self):
-		"""
-		create a testing client
-		"""
-		self.app = create_app('testing').test_client()
 
 	def test_get(self):
 		"""Test user can get all sales
@@ -34,8 +22,8 @@ class TestProducts(unittest.TestCase):
 		"""test create a sale record
 		"""
 		response = self.app.post('/api/v1/sales',
-			data=json.dumps(self.data),
-			content_type='application/json')
+			data=json.dumps(self.sales_data),
+			headers=self.authHeaders)
 		result = json.loads(response.data.decode())
 
 		self.assertEqual(response.status_code, 201)
@@ -46,8 +34,8 @@ class TestProducts(unittest.TestCase):
 		"""test get a specific sale_record by id
 		"""
 		response = self.app.post('/api/v1/sales',
-			data=json.dumps(self.data),
-			content_type='application/json')
+			data=json.dumps(self.sales_data),
+			headers=self.authHeaders)
 		result = json.loads(response.data.decode())
 
 		self.assertEqual(response.status_code, 201)
@@ -65,6 +53,3 @@ class TestProducts(unittest.TestCase):
 		result = json.loads(response.data.decode())
 		self.assertEqual(result["message"], "sale record unavailable")
 		self.assertEqual(result["status"], "not found")
-
-if __name__ == '__main__':
-	unittest.__main__

@@ -5,7 +5,6 @@ from ..models.products_model import Products
 app = Flask(__name__)
 api = Api(app)
 
-# products = {}
 
 parser = reqparse.RequestParser()
 parser.add_argument('name', required=True, help="Name cannot be blank")
