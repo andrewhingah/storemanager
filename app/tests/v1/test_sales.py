@@ -39,23 +39,22 @@ class TestSales(BaseTestCase):
 		self.assertEqual(result["message"], "success")
 		self.assertEqual(result["status"], "created")
 
-	# def test_get_one_sale_record(self):
-	# 	"""test get a specific sale_record by id
-	# 	"""
-	# 	self.register_user()
-	# 	result = self.login_user()
-	# 	access_token = json.loads(result.data.decode())['token']
+	def test_get_one_sale_record(self):
+		"""test get a specific sale_record by id
+		"""
+		self.register_user()
+		result = self.login_user()
+		access_token = json.loads(result.data.decode())['token']
 
-	# 	response = self.client.post('/api/v1/sales',
-	# 		data=self.sales_data,
-	# 		headers=dict(Authorization="Bearer " + access_token))
-	# 	# resp = json.loads(response.data.decode())
+		response = self.client.post('/api/v1/sales',
+			data=self.sales_data,
+			headers=dict(Authorization="Bearer " + access_token))
 		
-	# 	self.assertEqual(response.status_code, 201)
+		self.assertEqual(response.status_code, 201)
 
-	# 	res = self.client.get('/api/v1/sales/1',
-	# 		headers=dict(Authorization="Bearer " + access_token))	
-	# 	self.assertEqual(res.status_code, 200)
+		res = self.client.get('/api/v1/sales/1',
+			headers=dict(Authorization="Bearer " + access_token))	
+		self.assertEqual(res.status_code, 200)
 
 	def test_get_non_existing_sale_record(self):
 		"""test a non existing sale_record cannot be retrieved
