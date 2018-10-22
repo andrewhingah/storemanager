@@ -34,3 +34,42 @@ class Products:
 		message = "Product not found"
 		return message
 
+class Sales:
+	sales = {}
+	sale_id = 1
+
+	def __init__(self, name, quantity, category, price):
+		self.sale_id = len(Items.items) + 1
+		self.name = name
+		self.quantity = quantity
+		self.category = category
+		self.price = price
+		self.date_created = datetime.now()
+
+	def save(self):
+		payload = dict(
+			item_id = self.sale_id,
+			name = self.name,
+			quantity = self.quantity,
+			category = self.category,
+			price = self.price)
+
+		self.sales.update({self.sale_id:payload})
+
+	def get_all(self):
+		return Sales.sales
+
+	def get_one(self, sale_id):
+		for key in Sales.sales:
+			if key == sale_id:
+				return Sales.sales[key]
+		message = "Sale record not found"
+		return message
+
+# class User:
+# 	def __init__(self,email,password):
+# 		self.email = email
+# 		self.password = password
+
+# class Attendant(User):
+# 	def __init__()
