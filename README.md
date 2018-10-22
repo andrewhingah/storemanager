@@ -18,7 +18,6 @@ These instructions will get you a copy of the project up and running on your loc
 
 - Clone this repository. `git clone https://github.com/andrewhingah/storemanager.git`
 
-- While in the main directory (storemanager), checkout to feature branch 'git checkout ch-host-on-heroku-api-#161360493'
 
 - To test API locally, set up a virtual environment in the base project folder
 
