@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, make_response
 from flask_restful import Api, Resource, reqparse
-from ..models import Sales
+from ..models.sales_model import Sales
 
 app = Flask(__name__)
 api = Api(app)

@@ -1,15 +1,13 @@
 language: python  
 python: 
  - "3.6"  
-cache: pip  
+
 install:  
  - pip install -r requirements.txt
- - pip install coveralls
- - pip install codeclimate-test-reporter
 
 script: 
- - pytest --cov-report term-missing --cov=app 
+ - pytest --cov=app/api 
  - coveralls
+
 after_success:
  - coveralls
- - codeclimate-test-reporter
