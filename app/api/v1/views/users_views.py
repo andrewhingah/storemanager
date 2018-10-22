@@ -20,9 +20,6 @@ class UserRegistration(Resource):
 		email = args['email']
 		username = args['username']
 		password = args['password']
-		# email = request.get_json('email')
-		# username = request.get_json('username')
-		# password = request.get_json('password')
 
 		new_user = User.get_one(self, email)
 
@@ -43,8 +40,6 @@ class UserLogin(Resource):
 		args = parser.parse_args()
 		email = args['email']
 		password = args['password']
-		# email = request.get_json('email')
-		# password = request.get_json('password')
 
 		user = User.get_one(self, email)
 
@@ -56,4 +51,3 @@ class UserLogin(Resource):
 		else:
 			token = create_access_token(identity=email)
 			return make_response(jsonify({'message': 'Logged in successfully!', 'token': token}), 201)
-		# return make_response('Your account does not exist!, Please Register!'), 401

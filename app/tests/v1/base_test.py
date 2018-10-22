@@ -14,15 +14,18 @@ class BaseTestCase(unittest.TestCase):
         self.app = create_app(config_name="testing")
         
         self.checker = self.app.test_client()
+
         self.users = {'email': 'andrewhinga5@gmail.com', 'username': 'andrew5', 'password': '1234'}
-        self.default_user = {'email': 'john@gmail.com', 'username':'john', 'password': '1881'} 
+        self.new_user = {'email': 'john@gmail.com', 'username':'john', 'password': '1881'} 
     
         self.client = self.app.test_client()
+
         self.products_data = {"name":"unga", "quantity":22, "price":100}
         self.sales_data = {"name":"laptop", "quantity":33, "category": "electronics", "price":55000}
 
 
-        self.user = {'email': 'andrewhinga5@gmail.com', 'username': 'andrew5','password': 'password'}
+        self.user = {'email': 'henry@gmail.com','username': 'henry','password': 'password'}
+
         self.header = {"Content-Type": "application/json"}
 
         self.s_url = 'api/v1/auth/signup' #signup url
@@ -32,23 +35,16 @@ class BaseTestCase(unittest.TestCase):
         
 
     def register_user(self, email='', username='', password=''):
-    	# user_data = {
-    	# 'email':email,
-    	# 'username':username,
-    	# 'password':password
-    	# }
+
     	user_data = self.users
 
     	return self.checker.post(self.s_url, data=user_data)
 
     def login_user(self, email='', password=''):
-    	# user_data = {
-    	# 'email':email,
-    	# 'password':password
-    	# }
+    	
     	user_data =self.users
 
-    	response = self.checker.post('api/v1/auth/login', data=user_data)
+    	response = self.checker.post(self.l_url, data=user_data)
     	return response
 
 

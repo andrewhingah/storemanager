@@ -15,7 +15,7 @@ class Sales:
 
 	def save(self):
 		payload = dict(
-			item_id = self.sale_id,
+			sale_id = self.sale_id,
 			name = self.name,
 			quantity = self.quantity,
 			category = self.category,
