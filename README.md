@@ -32,7 +32,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 	`export FLASK_ENV="development"`
 
-	`export SECRET="secretsecret"`
+	`export SECRET="your_secret_key"`
 
 	`export APP_SETTINGS="development"`
 
@@ -107,15 +107,15 @@ The following endpoints should work:
 
 ## Contributing
 
-Fork it from https://github.com/andrewhingah/storemanager/fork
+- Fork it from https://github.com/andrewhingah/storemanager/fork
 
-Create your feature branch `git branch somefeature` then `git checkout somefeature`
+- Create your feature branch `git branch somefeature` then `git checkout somefeature`
 
-Commit your changes `git commit "Add some feature"`
+- Commit your changes `git commit "Add some feature"`
 
-Push to the branch `git push origin somefeature`
+- Push to the branch `git push origin somefeature`
 
-Create a new pull request
+- Create a new pull request
 
 ## Author
 
