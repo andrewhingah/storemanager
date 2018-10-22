@@ -39,12 +39,12 @@ class Sales:
 	sale_id = 1
 
 	def __init__(self, name, quantity, category, price):
-		self.sale_id = len(Items.items) + 1
+		self.sale_id = len(Sales.sales) + 1
 		self.name = name
 		self.quantity = quantity
 		self.category = category
-		self.price = price
-		self.date_created = datetime.now()
+		self.total_price = price * self.quantity
+		self.date_sold = datetime.now()
 
 	def save(self):
 		payload = dict(
@@ -52,7 +52,7 @@ class Sales:
 			name = self.name,
 			quantity = self.quantity,
 			category = self.category,
-			price = self.price)
+			total_price = self.total_price)
 
 		self.sales.update({self.sale_id:payload})
 
