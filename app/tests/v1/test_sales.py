@@ -49,11 +49,11 @@ class TestSales(BaseTestCase):
 	# 	response = self.client.post('/api/v1/sales',
 	# 		data=self.sales_data,
 	# 		headers=dict(Authorization="Bearer " + access_token))
-	# 	resp = json.loads(response.data.decode())
+	# 	# resp = json.loads(response.data.decode())
 		
 	# 	self.assertEqual(response.status_code, 201)
 
-	# 	res = self.client.get('/api/v1/sales/{}'.format(resp['id']),
+	# 	res = self.client.get('/api/v1/sales/1',
 	# 		headers=dict(Authorization="Bearer " + access_token))	
 	# 	self.assertEqual(res.status_code, 200)
 
