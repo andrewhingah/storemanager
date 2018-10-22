@@ -32,6 +32,32 @@ class TestProducts(BaseTestCase):
 			data=self.products_data)
 		self.assertEqual(response.status_code, 201)
 
+	def test_post_product_with_no_name(self):
+		'''test post product request must have a name'''
+		self.register_user()
+		result = self.login_user()
+		access_token = json.loads(result.data.decode())['token']
+
+		response = self.client.post(self.p_url,
+			headers=dict(Authorization="Bearer " + access_token),
+			data=self.bad_products_data1)
+		result = json.loads(response.data.decode())
+		self.assertEqual(response.status_code, 400)
+		self.assertEqual(result["message"]["name"], "Name cannot be blank")
+
+	def test_quantity_cannot_be_a_string(self):
+		'''test only integers allowed in quantity'''
+		self.register_user()
+		result = self.login_user()
+		access_token = json.loads(result.data.decode())['token']
+
+		response = self.client.post(self.p_url,
+			headers=dict(Authorization="Bearer " + access_token),
+			data=self.bad_products_data2)
+		self.assertEqual(response.status_code, 400)
+
+
+
 	def test_get_one_product(self):
 		"""test get a specific product by id
 		"""
