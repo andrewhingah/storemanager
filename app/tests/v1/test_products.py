@@ -20,8 +20,6 @@ class TestProducts(unittest.TestCase):
 		create a testing client
 		"""
 		self.app = create_app('testing').test_client()
-		# self.app =create_app.test_client()
-		# self.content_type = 'application/json'
 
 	def test_get(self):
 		"""Test admin/attendant can get all products
