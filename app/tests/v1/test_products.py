@@ -18,7 +18,7 @@ class TestProducts(unittest.TestCase):
 		"""
 		self.app = create_app('testing').test_client()
 		# self.app =create_app.test_client()
-		self.content_type = 'application/json'
+		# self.content_type = 'application/json'
 
 	def test_get(self):
 		"""Test admin/attendant can get all products
@@ -27,8 +27,10 @@ class TestProducts(unittest.TestCase):
 		self.assertEqual(response.status_code, 200)
 
 	def test_post(self):
-		product = {"name":"unga", "quantity":20, "price":100}
-		response = self.app.post('/api/v1/products', data=json.dumps(product))
+		product = {"name":"unga", "quantity":22, "price":100}
+		response = self.app.post('/api/v1/products',
+			data=json.dumps(product),
+			content_type='application/json')
 		self.assertEqual(response.status_code, 201)
 
 if __name__ == '__main__':
