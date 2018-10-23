@@ -44,3 +44,12 @@ class UsersTestCase(BaseTestCase):
         result = json.loads(response.data.decode())
 
         self.assertEqual(result['message'], "Your account does not exist!, Please Register!")
+
+    def test_signup_user_with_missing_fields(self):
+        '''test user cannot be signed up with missing fields'''
+        data = self.bad_user
+        response = self.checker.post(self.l_url, data=json.dumps(data), headers=self.header)
+
+        result = json.loads(response.data.decode())
+
+        self.assertEqual(result['message']['email'], "email cannot be blank")

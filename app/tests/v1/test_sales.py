@@ -23,6 +23,15 @@ class TestSales(BaseTestCase):
 		self.assertEqual(response.status_code, 200)
 		self.assertEqual(result["message"], "success")
 
+	def test_get_sales_without_authentication(self):
+		'''test products cannot be accessed before login'''
+		response = self.client.get(self.sl_url)
+		result = json.loads(response.data.decode())
+
+		self.assertEqual(response.status_code, 401)
+		self.assertEqual(result["msg"], "Missing Authorization Header")
+
+
 	def test_post_sale_record(self):
 		"""test create a sale record
 		"""
@@ -39,6 +48,22 @@ class TestSales(BaseTestCase):
 		self.assertEqual(result["message"], "success")
 		self.assertEqual(result["status"], "created")
 
+	def test_post_sale_record_with_missing_fields(self):
+		'''test post sale with missing name and quantity'''
+
+		self.register_user()
+		result = self.login_user()
+		access_token = json.loads(result.data.decode())['token']
+
+		response = self.client.post(self.sl_url,
+			data=self.bad_sales_data,
+			headers=dict(Authorization="Bearer " + access_token))
+		result = json.loads(response.data.decode())
+
+		self.assertEqual(response.status_code, 400)
+		self.assertEqual(result["message"]["category"], "Category cannot be blank")
+
+
 	def test_get_one_sale_record(self):
 		"""test get a specific sale_record by id
 		"""
@@ -52,7 +77,7 @@ class TestSales(BaseTestCase):
 		
 		self.assertEqual(response.status_code, 201)
 
-		res = self.client.get('/api/v1/sales/1',
+		res = self.client.get('/api/v1/sale/1',
 			headers=dict(Authorization="Bearer " + access_token))	
 		self.assertEqual(res.status_code, 200)
 

@@ -14,17 +14,20 @@ class BaseTestCase(unittest.TestCase):
         self.app = create_app(config_name="testing")
         
         self.checker = self.app.test_client()
-
-        self.users = {'email': 'andrewhinga5@gmail.com', 'username': 'andrew5', 'password': '1234'}
-        self.new_user = {'email': 'john@gmail.com', 'username':'john', 'password': '1881'} 
-    
         self.client = self.app.test_client()
 
-        self.products_data = {"name":"unga", "quantity":22, "price":100}
-        self.sales_data = {"name":"laptop", "quantity":33, "category": "electronics", "price":55000}
-
-
+        self.users = {'email': 'andrewhinga5@gmail.com', 'username': 'andrew5', 'password': '1234'}
+        self.new_user = {'email': 'john@gmail.com', 'username':'john', 'password': '1881'}
         self.user = {'email': 'henry@gmail.com','username': 'henry','password': 'password'}
+        self.bad_user = {"password":"password"}
+    
+        
+        self.products_data = {"name":"unga", "quantity":22, "price":100}
+        self.bad_products_data1 = {"quantity":22, "price":100}
+        self.bad_products_data2 = {"name":"unga", "quantity":"five", "price":100}
+        self.sales_data = {"name":"laptop", "quantity":33, "category": "electronics", "price":55000}
+        self.bad_sales_data = {"name":"laptop", "quantity":33, "price":55000}
+
 
         self.header = {"Content-Type": "application/json"}
 
