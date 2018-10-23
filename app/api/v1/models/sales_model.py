@@ -3,13 +3,16 @@ from datetime import datetime
 class Sales:
 	'''Class represents sales operations'''
 	sales = {}
+	
 	sale_id = 1
 
-	def __init__(self, name, quantity, category, price):
+	def __init__(self, product_id, name, quantity, remaining_q, category, price):
 		self.sale_id = len(Sales.sales) + 1
+		self.product_id = product_id
 		self.name = name
 		self.quantity = quantity
 		self.category = category
+		self.remaining_q = remaining_q
 		self.total_price = price * self.quantity
 		self.date_sold = datetime.now()
 
@@ -18,9 +21,10 @@ class Sales:
 			sale_id = self.sale_id,
 			name = self.name,
 			quantity = self.quantity,
+			remaining_q = self.remaining_q,
 			category = self.category,
 			total_price = self.total_price)
-
+		print(self.sales)
 		self.sales.update({self.sale_id:payload})
 
 	def get_all(self):
