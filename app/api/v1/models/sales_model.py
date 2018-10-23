@@ -24,7 +24,7 @@ class Sales:
 			remaining_q = self.remaining_q,
 			category = self.category,
 			total_price = self.total_price)
-		print(self.sales)
+		
 		self.sales.update({self.sale_id:payload})
 
 	def get_all(self):
