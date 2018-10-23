@@ -48,6 +48,22 @@ class TestSales(BaseTestCase):
 		self.assertEqual(result["message"], "success")
 		self.assertEqual(result["status"], "created")
 
+	# def test_sell_product_that_doesn't_exist(self):
+	# 	"""test create a sale record
+	# 	"""
+	# 	self.register_user()
+	# 	result = self.login_user()
+	# 	access_token = json.loads(result.data.decode())['token']
+
+	# 	response = self.client.post(self.sl_url,
+	# 		data=self.sales_data,
+	# 		headers=dict(Authorization="Bearer " + access_token))
+	# 	result = json.loads(response.data.decode())
+
+	# 	self.assertEqual(response.status_code, 201)
+	# 	self.assertEqual(result["message"], "success")
+	# 	self.assertEqual(result["status"], "created")
+
 	def test_post_sale_record_with_missing_fields(self):
 		'''test post sale with missing name and quantity'''
 
