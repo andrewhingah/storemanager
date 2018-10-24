@@ -43,6 +43,7 @@ class AllSales(Resource):
 			if k == int(product_id):
 				remaining_q = Products.products[k]["quantity"] - quantity
 				new_sale = Sales(product_id, name, quantity, remaining_q, category, price)
+				Products.products[int(product_id)]["quantity"] = remaining_q
 
 				new_sale.save()
 				return make_response(jsonify(

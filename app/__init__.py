@@ -9,9 +9,8 @@ def create_app(config_name):
 	jwt = JWTManager(app)
 
 	from .api.v1 import version1 as v1
-	from .api.v2 import version1 as v2
+
 	app.register_blueprint(v1)
-	app.register_blueprint(v2)
 
 	app.config.from_object(app_config[config_name])
 	app.config.from_pyfile('config.py')
