@@ -42,6 +42,8 @@ class AllSales(Resource):
 		for k,v in Products.products.items():
 			if k == int(product_id):
 				remaining_q = Products.products[k]["quantity"] - quantity
+				if remaining_q <= 0:
+					return {"message":"The quantity you want to sell exceeds the available inventory"}
 				new_sale = Sales(product_id, name, quantity, remaining_q, category, price)
 				Products.products[int(product_id)]["quantity"] = remaining_q
 
@@ -51,7 +53,7 @@ class AllSales(Resource):
 					"status":"created",
 					"sale_record":new_sale.__dict__}), 201)
 		
-		return make_response(jsonify({"message":"Product out of stock"}))
+		return make_response(jsonify({"message":"Product unavailable"}))
 
 class SingleSale(Resource):
 	'''Single sale record API'''
