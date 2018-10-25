@@ -22,11 +22,11 @@ class BaseTestCase(unittest.TestCase):
         self.bad_user = {"password":"password"}
     
         
-        self.products_data = {"name":"unga", "quantity":22, "price":100}
+        self.products_data = {"name":"unga", "quantity":22, "price":100, "category": "foods"}
         self.bad_products_data1 = {"quantity":22, "price":100}
         self.bad_products_data2 = {"name":"unga", "quantity":"five", "price":100}
-        self.sales_data = {"product_id":1, "name":"laptop", "quantity":33, "category": "electronics", "price":55000}
-        self.bad_sales_data = {"product_id":1, "name":"laptop", "quantity":33, "price":55000}
+        self.sales_data = {"product_id":1, "quantity":33}
+        self.bad_sales_data = {"product_id":1}
 
 
         self.header = {"Content-Type": "application/json"}
