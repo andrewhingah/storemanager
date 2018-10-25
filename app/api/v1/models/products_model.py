@@ -7,10 +7,11 @@ class Products:
 	
 	product_id = 1
 
-	def __init__(self, name, quantity, price):
+	def __init__(self, name, quantity, category, price):
 		self.product_id =len(Products.products) + 1
 		self.name = name
 		self.quantity = quantity
+		self.category = category
 		self.price = price
 		self.date_created = datetime.now()
 
@@ -20,6 +21,7 @@ class Products:
 			product_id = self.product_id,
 			name = self.name,
 			quantity = self.quantity,
+			category = self.category,
 			price = self.price
 			)
 

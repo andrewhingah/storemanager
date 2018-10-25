@@ -13,7 +13,7 @@ class Sales:
 		self.quantity = quantity
 		self.category = category
 		self.remaining_q = remaining_q
-		self.total_price = price * self.quantity
+		self.total_price = int(price) * self.quantity
 		self.date_sold = datetime.now()
 
 	def save(self):
