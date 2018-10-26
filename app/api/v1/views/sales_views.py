@@ -30,8 +30,6 @@ class AllSales(Resource):
 	def post(self):
 		"""posts a single product"""
 		args = parser.parse_args()
-		# data = request.get_json(force=True)
-		# product_id = data['product_id']
 		product_id = args['product_id']
 		quantity = args['quantity']
 
