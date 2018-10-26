@@ -5,7 +5,6 @@ from flask_jwt_extended import (jwt_required, create_access_token, get_jwt_ident
 
 from ..models.sales_model import Sales
 from .. models.products_model import *
-from ..utils.validate import verify_type
 
 
 parser = reqparse.RequestParser()
@@ -31,13 +30,14 @@ class AllSales(Resource):
 	def post(self):
 		"""posts a single product"""
 		args = parser.parse_args()
+		# data = request.get_json(force=True)
+		# product_id = data['product_id']
 		product_id = args['product_id']
 		quantity = args['quantity']
 
-		if verify_type(product_id):
-			return verify_type(product_id)
-		if verify_type(quantity):
-			return verify_type(quantity)
+		if isinstance(product_id, int) == False:
+			print (isinstance(product_id, int))
+			return {"message": "id can only be an integer"}
 
 	
 		for k,v in Products.products.items():
