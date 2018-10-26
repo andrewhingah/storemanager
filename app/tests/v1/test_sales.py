@@ -47,15 +47,6 @@ class TestSales(BaseTestCase):
 		self.assertEqual(result["message"], "success")
 		self.assertEqual(result["status"], "created")
 
-		# response = self.client.post(self.sl_url,
-		# 	data=self.sales_data,
-		# 	headers=dict(Authorization="Bearer " + access_token))
-		# result = json.loads(response.data.decode())
-
-		# self.assertEqual(response.status_code, 201)
-		# self.assertEqual(result["message"], "success")
-		# self.assertEqual(result["status"], "created")
-
 
 	def test_get_one_sale_record(self):
 		"""test get a specific sale_record by id
@@ -70,9 +61,6 @@ class TestSales(BaseTestCase):
 		
 		self.assertEqual(response.status_code, 200)
 
-		# res = self.client.get('/api/v1/sale/1',
-		# 	headers=dict(Authorization="Bearer " + access_token))	
-		# self.assertEqual(res.status_code, 200)
 
 	def test_get_non_existing_sale_record(self):
 		"""test a non existing sale_record cannot be retrieved
