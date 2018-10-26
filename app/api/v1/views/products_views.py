@@ -8,9 +8,10 @@ from ..models.products_model import Products
 
 
 parser = reqparse.RequestParser()
-parser.add_argument('name', required=True, help="Name cannot be blank")
+parser.add_argument('name')
 parser.add_argument('quantity', type=int, required=True, help="Only integers allowed")
-parser.add_argument('price', type=int, required=True, help="only integers allowed")
+parser.add_argument('category')
+parser.add_argument('price')
 
 class AllProducts(Resource):
 	"""All products class"""
@@ -32,9 +33,10 @@ class AllProducts(Resource):
 		args = parser.parse_args()
 		name = args['name']
 		quantity = args['quantity']
+		category = args['category']
 		price = args['price']
 
-		newproduct = Products(name, quantity, price)
+		newproduct = Products(name, quantity, category, price)
 		newproduct.save()
 
 		return make_response(jsonify(

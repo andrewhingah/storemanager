@@ -9,6 +9,7 @@ version1 = Blueprint('api version1', __name__, url_prefix='/api/v1')
 
 api = Api(version1)
 
+
 api.add_resource(AllProducts, '/products')
 api.add_resource(SingleProduct, '/product/<int:product_id>')
 api.add_resource(AllSales, '/sales')

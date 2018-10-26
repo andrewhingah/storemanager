@@ -1,14 +1,16 @@
 from flask import Flask, jsonify, make_response, request
 from flask_restful import Api, Resource, reqparse
 from flask_jwt_extended import (jwt_required, create_access_token, get_jwt_identity, get_raw_jwt)
+import re
 
 from ..models.users_model import User
+from ..utils.validate import validate_email, verify_user_details
 
 
 parser = reqparse.RequestParser()
 parser.add_argument('email', required=True, help="email cannot be blank")
 parser.add_argument('username')
-parser.add_argument('password', required=True, help="password cannot be blank")
+parser.add_argument('password')
 
 class UserRegistration(Resource):
 	"""All products class"""
@@ -20,6 +22,11 @@ class UserRegistration(Resource):
 		email = args['email']
 		username = args['username']
 		password = args['password']
+
+		if verify_user_details(username):
+			return verify_user_details(username)
+		if validate_email(email):
+			return validate_email(email)
 
 		new_user = User.get_one(self, email)
 
