@@ -53,14 +53,14 @@ These instructions will get you a copy of the project up and running on your loc
 		`{
 			"email":"smith@gmail.com",
 			"username":"smith",
-			"password":"12345"
+			"password":"QWdre6po_@"
 		}`
 
 	- Sign in the user: url: `http://127.0.0.1:5000/api/v1/auth/login`
 
 		`{
 			"email":"smith@gmail.com",
-			"password":"12345"
+			"password":"7QWdre6po_@"
 		}`
 
 
@@ -73,9 +73,10 @@ These instructions will get you a copy of the project up and running on your loc
 		Header: `Content-Type: application/json`
 
 		`{
-			"name":"Iphone 6",
-			"quantity":"30",
-			"price":"50500"
+			"name": "Iphone 6",
+			"quantity": "30",
+			"category": "electronics"
+			"price": 50500
 		}`
 
 The following endpoints should work:
