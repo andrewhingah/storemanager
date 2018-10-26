@@ -9,10 +9,7 @@ from .. models.products_model import *
 
 parser = reqparse.RequestParser()
 parser.add_argument('product_id', required=True, help="Id cannot be blank")
-# parser.add_argument('name', required=True, help="Name cannot be blank")
 parser.add_argument('quantity', type=int, required=True, help="Only integers allowed")
-# parser.add_argument('category', required=True, help="Category cannot be blank")
-# parser.add_argument('price', type=int, required=True, help="only integers allowed")
 
 class AllSales(Resource):
 	"""All products class"""
@@ -33,8 +30,15 @@ class AllSales(Resource):
 	def post(self):
 		"""posts a single product"""
 		args = parser.parse_args()
+		# data = request.get_json(force=True)
+		# product_id = data['product_id']
 		product_id = args['product_id']
 		quantity = args['quantity']
+
+		if isinstance(product_id, int) == False:
+			print (isinstance(product_id, int))
+			return {"message": "id can only be an integer"}
+
 	
 		for k,v in Products.products.items():
 			if k == int(product_id):
@@ -42,8 +46,10 @@ class AllSales(Resource):
 				name = Products.products[k]["name"]
 				category = Products.products[k]["category"]
 				price = Products.products[k]["price"]
+
 				if remaining_q <= 0:
 					return {"message":"The quantity you want to sell exceeds the available inventory"}
+
 				new_sale = Sales(product_id, name, quantity, remaining_q, category, price)
 				Products.products[int(product_id)]["quantity"] = remaining_q
 
@@ -53,7 +59,7 @@ class AllSales(Resource):
 					"status":"created",
 					"sale_record":new_sale.__dict__}), 201)
 		
-		return make_response(jsonify({"message":"Product unavailable"}))
+		return make_response(jsonify({"message":"Product unavailable"}), 404)
 
 class SingleSale(Resource):
 	'''Single sale record API'''
