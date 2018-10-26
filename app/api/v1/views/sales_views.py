@@ -35,10 +35,6 @@ class AllSales(Resource):
 		product_id = args['product_id']
 		quantity = args['quantity']
 
-		if isinstance(product_id, int) == False:
-			print (isinstance(product_id, int))
-			return {"message": "id can only be an integer"}
-
 	
 		for k,v in Products.products.items():
 			if k == int(product_id):
