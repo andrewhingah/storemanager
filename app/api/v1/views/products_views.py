@@ -5,13 +5,14 @@ from flask_jwt import JWT, jwt_required
 from flask_jwt_extended import jwt_required
 
 from ..models.products_model import Products
+from ..utils.validate import verify_name_details
 
 
 parser = reqparse.RequestParser()
 parser.add_argument('name')
 parser.add_argument('quantity', type=int, required=True, help="Only integers allowed")
 parser.add_argument('category')
-parser.add_argument('price')
+parser.add_argument('price', type=int, required=True, help="Only integers allowed")
 
 class AllProducts(Resource):
 	"""All products class"""
@@ -35,6 +36,12 @@ class AllProducts(Resource):
 		quantity = args['quantity']
 		category = args['category']
 		price = args['price']
+
+		if verify_name_details(name):
+			return verify_name_details(name)
+
+		if verify_name_details(category):
+			return verify_name_details(category)
 
 		newproduct = Products(name, quantity, category, price)
 		newproduct.save()

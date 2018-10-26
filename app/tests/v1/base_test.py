@@ -20,13 +20,14 @@ class BaseTestCase(unittest.TestCase):
         self.new_user = {'email': 'john@gmail.com', 'username':'john', 'password': '1881'}
         self.user = {'email': 'henry@gmail.com','username': 'henry','password': 'password'}
         self.bad_user = {"password":"password"}
+        self.invalid_email = {'email': '12563dhdj', 'username': 'andrew77', 'password': '1234'}
     
         
         self.products_data = {"name":"unga", "quantity":22, "price":100, "category": "foods"}
         self.bad_products_data1 = {"quantity":22, "price":100}
         self.bad_products_data2 = {"name":"unga", "quantity":"five", "price":100}
         self.sales_data = {"product_id":1, "quantity":33}
-        self.bad_sales_data = {"product_id":1}
+        self.bad_sales_data = {"product_id":1, "quantity": "   "}
 
 
         self.header = {"Content-Type": "application/json"}

@@ -53,3 +53,12 @@ class UsersTestCase(BaseTestCase):
         result = json.loads(response.data.decode())
 
         self.assertEqual(result['message']['email'], "email cannot be blank")
+
+    def test_signup_with_invalid_email(self):
+        '''test valid email'''
+        data = self.invalid_email
+        response = self.checker.post(self.l_url, data=json.dumps(data), headers=self.header)
+        result = json.loads(response.data.decode())
+        self.assertIn(result['message'], 'is not a valid email address')
+
+
