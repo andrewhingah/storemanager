@@ -6,6 +6,7 @@ import json
 
 from ... import create_app
 
+
 class BaseTestCase(unittest.TestCase):
     """Parent tests class"""
 
